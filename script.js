@@ -1,22 +1,33 @@
 const pad = document.getElementById('pad');
-const n = 16;
 const newbutton = document.getElementById('createpad');
 
-function blankPad (n) {
-  for (let i = 0; i < n**2; i++) {
-    let box = document.createElement('div');
-    box.classList.add('boxes');
-    box.classList.add('whitebox');
-    pad.appendChild(box);   
+function blankPad () {
+    if (document.querySelectorAll('.boxes')) {
+        let oldBoxes = document.querySelectorAll('.boxes');
+        oldBoxes.forEach((oldBox) => {
+            oldBox.remove()
+        })
+    }
+    let n = document.getElementById('size').value
+    if (+n < 16 || +n > 64 || !+n) {
+        alert('You must choose a number between 16 and 64!');
+        return;
+    } else {
+    let pix = 640 / n
+    console.log(n)
+    for (let i = 0; i < n**2; i++) {
+        let box = document.createElement('div');
+        box.classList.add('boxes');
+        box.classList.add('whitebox');
+        box.setAttribute('style', `height: ${pix}px; width: ${pix}px`)
+
+        box.addEventListener('mouseover', draw);
+        pad.appendChild(box); }
   }
-  const boxes = document.querySelectorAll('.boxes');
-  boxes.forEach((box) => {
-    box.addEventListener('click',draw());
-  })
 }
 
 function draw (e) {
-  e.classList.add('blackbox');
+  e.target.classList.add('blackbox');
 }
 
-newbutton.addEventListener('click', function () {blankPad(n)});
+newbutton.addEventListener('click', function () {blankPad()});
