@@ -20,11 +20,13 @@ h1 {
     margin: 0px auto;
     height: 640px;
     width: 640px;
-    border: 2px solid black;
+    border: 15px solid red;
     align-self: center;
     padding: 0px;
     display: flex;
     flex-flow: row wrap;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px -10px;
   }
   
   .whitebox {
