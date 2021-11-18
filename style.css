@@ -10,6 +10,14 @@ h1 {
     justify-content: center;
     flex-direction: row wrap;
   }
+  #modebox {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row wrap;
+  }
   button,
   input {
     height: 40px;
